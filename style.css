@@ -10,3 +10,42 @@ Version:  1.0
 License:  GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
+@font-face {
+	font-family: 'exothin';
+	src: url('fonts/exo-variablefont_wght.woff2') format('woff2'),
+		 url('fonts/exo-variablefont-wght.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'exoregular';
+	src: url('fonts/exo-regular.woff2') format('woff2'),
+		 url('fonts/exo-regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'exo-semiboldregular';
+	src: url('fonts/exo-semibold.woff2') format('woff2'),
+		 url('fonts/exo-semibold.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'exobold';
+	src: url('fonts/exo-bold.woff2') format('woff2'),
+		 url('fonts/exo-bold.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'assistantbold';
+	src: url('fonts/assistant-bold.woff2') format('woff2'),
+		 url('fonts/assistant-bold.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+p {
+  font-family: exoregular;
+}
