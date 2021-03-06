@@ -141,8 +141,7 @@ ul{
 	right:0;
 }
 #masthead nav{
-	background-color: var(--global--color-background);
-	box-shadow: -5px 5px 5px 5px var(--menu--color-shadow);
+
 	right:0;
 	border-bottom-left-radius: var(--primary-nav--padding);
 }
@@ -150,6 +149,8 @@ ul{
 	padding: calc(0.1 * var(--primary-nav--padding)) var(--primary-nav--padding);
 }
 header#masthead{
+	background-color: var(--global--color-background);
+	box-shadow: -5px 5px 5px 5px var(--menu--color-shadow);
 	width:100%;
 	margin: 0;
 	align-self: center;
