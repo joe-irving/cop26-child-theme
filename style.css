@@ -12,8 +12,8 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 @font-face {
 	font-family: 'exothin';
-	src: url('fonts/exo-variablefont_wght.woff2') format('woff2'),
-		 url('fonts/exo-variablefont-wght.woff') format('woff');
+	src: url('./fonts/exo-variablefont_wght.woff2') format('woff2'),
+		 url('./fonts/exo-variablefont-wght.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -45,7 +45,140 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 	font-weight: normal;
 	font-style: normal;
 }
+:root{
 
-p {
-  font-family: exoregular;
+	/* Globals */
+	--global--font-primary: 'exoregular';
+	--global--font-secondary: 'exobold';
+	--global--color-red:#E7513E;
+	--global--font-size-page-title: var(--global--font-size-lg);
+	--global--color-background:var(--global--color-white);
+	/* Buttons */
+	--button--color-text: var(--global--color-white);
+	--button--color-background: none;
+	/* Text */
+	--heading--font-family: 'exo-semiboldregular';
+	/* Menu */
+	--menu--color-shadow: var(--global--color-red);
+	--menu--color-underline:  var(--global--color-red);
+
 }
+p {
+	font-family: var(--global--font-primary);
+}
+
+/* Menu formatting */
+.primary-navigation a:hover,
+.primary-navigation a:visited,
+.primary-navigation .current-menu-item > a:first-child:hover,
+.primary-navigation .current_page_item > a:first-child:hover,
+.primary-navigation .current-menu-item > a:first-child:visited {
+	text-decoration: underline;
+	text-decoration-color: var(--menu--color-underline);
+	text-decoration-style: wavy;
+	text-decoration-thickness: 0.1em;
+	background-color: none;
+	outline:0;
+}
+.primary-navigation .current-menu-item > a:first-child, .primary-navigation .current_page_item > a:first-child {
+    text-decoration: none;
+    text-decoration-style: none;
+}
+/**
+ * Button
+ */
+.site .button,
+input[type=submit],
+input[type=reset],
+.wp-block-search__button,
+.wp-block-button .wp-block-button__link,
+.widget_search > .search-form .search-submit {
+	background-image: url('images/btn-small.svg');
+	line-height: var(--button--line-height);
+	color: var(--button--color-text);
+	cursor: pointer;
+	font-weight: var(--button--font-weight);
+	font-family: var(--button--font-family);
+	font-size: var(--button--font-size);
+	background-color: none;
+	border-radius: var(--button--border-radius);
+	border: none;
+	text-decoration: none;
+	padding: var(--button--padding-vertical) var(--button--padding-horizontal);
+	background-repeat: round;
+}
+
+.site .button:focus,
+input[type=submit]:focus,
+input[type=reset]:focus,
+.wp-block-search__button:focus,
+.wp-block-button .wp-block-button__link:focus,
+.widget_search > .search-form .search-submit:focus,
+.site .button:hover, input[type="submit"]:hover,
+input[type="reset"]:hover,
+.wp-block-search .wp-block-search__button:hover,
+.wp-block-file .wp-block-file__button:hover,
+.widget_search > .search-form .search-submit:hover{
+	background-image: url('images/btn-small-hover.svg');
+	background-color: none;
+}
+
+/* List arrow for each item */
+ul{
+	list-style-image: url('images/Arrow-right.svg')
+}
+/* The master head */
+#masthead .site-logo{
+	margin:calc(var(--global--spacing-vertical) * 0.2) 0;
+	height: 90%;
+}
+#masthead .menu-button-container,#masthead nav{
+	position: sticky;
+	top:0;
+	z-index: 99;
+}
+#masthead .menu-button-container{
+	right:0;
+}
+#masthead nav{
+	background-color: var(--global--color-background);
+	box-shadow: -5px 5px 5px 5px var(--menu--color-shadow);
+	right:0;
+	border-bottom-left-radius: var(--primary-nav--padding);
+}
+#masthead nav li{
+	padding: calc(0.1 * var(--primary-nav--padding)) var(--primary-nav--padding);
+}
+header#masthead{
+	width:100%;
+	margin: 0;
+	align-self: center;
+	max-width:none;
+	padding: 0 var(--primary-nav--padding);
+	background-color: var(--global--color-background);
+}
+/* Sub menu */
+.primary-navigation .sub-menu {
+	border: none;
+	box-shadow: 0 3px 3px 5px var(--menu--color-shadow)
+}
+@media only screen and (min-width: 482px) {
+	.primary-navigation > div > .menu-wrapper > li > .sub-menu:before,
+	.primary-navigation > div > .menu-wrapper > li > .sub-menu:after{
+		content: url("images/accordion-arrow-down.svg");
+		display: block;
+		position: absolute;
+		width:20px;
+		top: -11px;
+		left: var(--global--spacing-horizontal);
+		border-style: none;
+		border-color: var(--primary-nav--border-color) transparent;
+		border-width: 0 7px 10px 7px;
+		z-index: 10;
+	}
+
+}
+
+/* .site-main{
+	padding-top: calc(2.5 * var(--global--spacing-vertical));
+} */
