@@ -61,6 +61,8 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 	/* Menu */
 	--menu--color-shadow: var(--global--color-red);
 	--menu--color-underline:  var(--global--color-red);
+	--primary-nav--padding: 0.5vw;
+	--site-logo-width: 80px;
 
 }
 p {
@@ -75,8 +77,8 @@ p {
 .primary-navigation .current-menu-item > a:first-child:visited {
 	text-decoration: underline;
 	text-decoration-color: var(--menu--color-underline);
-	text-decoration-style: wavy;
-	text-decoration-thickness: 0.1em;
+	text-decoration-style:solid;
+	text-decoration-thickness: 0.2em;
 	background-color: none;
 	outline:0;
 }
@@ -85,8 +87,15 @@ p {
     text-decoration-style: none;
 }
 /**
- * Button
+ * Buttons
  */
+ /* Menu button */
+ .menu-button-container .button.button {
+	 color:var(--button--color-text);
+ }
+ .menu-button-container .button.button:focus {
+	color:var(--button--color-text);
+ }
 .site .button,
 input[type=submit],
 input[type=reset],
@@ -94,18 +103,11 @@ input[type=reset],
 .wp-block-button .wp-block-button__link,
 .widget_search > .search-form .search-submit {
 	background-image: url('images/btn-small.svg');
-	line-height: var(--button--line-height);
-	color: var(--button--color-text);
-	cursor: pointer;
-	font-weight: var(--button--font-weight);
-	font-family: var(--button--font-family);
-	font-size: var(--button--font-size);
-	background-color: none;
-	border-radius: var(--button--border-radius);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 	border: none;
 	text-decoration: none;
-	padding: var(--button--padding-vertical) var(--button--padding-horizontal);
-	background-repeat: round;
+	color:var(--button--color-text);
 }
 
 .site .button:focus,
@@ -121,6 +123,7 @@ input[type="reset"]:hover,
 .widget_search > .search-form .search-submit:hover{
 	background-image: url('images/btn-small-hover.svg');
 	background-color: none;
+	background-size: 100% 100%;
 }
 
 /* List arrow for each item */
@@ -129,28 +132,25 @@ ul{
 }
 /* The master head */
 #masthead .site-logo{
-	margin:calc(var(--global--spacing-vertical) * 0.2) 0;
-	height: 90%;
+	/* margin:calc(var(--global--spacing-vertical) * 0.2) 0;
+	height: auto; */
 }
-#masthead .menu-button-container,#masthead nav{
-	position: sticky;
-	top:0;
+#masthead .site-logo img{
+	width: var(--site-logo-width);
+}
+#masthead {
 	z-index: 99;
 }
-#masthead .menu-button-container{
-	right:0;
-}
-#masthead nav{
-
-	right:0;
-	border-bottom-left-radius: var(--primary-nav--padding);
+.has-background-white .site a:focus{
+	background-color: none;
+	color: var(--wp--style--color--link, var(--global--color-white));
 }
 #masthead nav li{
 	padding: calc(0.1 * var(--primary-nav--padding)) var(--primary-nav--padding);
 }
 header#masthead{
 	background-color: var(--global--color-background);
-	box-shadow: -5px 5px 5px 5px var(--menu--color-shadow);
+	/* box-shadow: -5px 5px 5px 5px var(--menu--color-shadow); */
 	width:100%;
 	margin: 0;
 	align-self: center;
@@ -159,27 +159,34 @@ header#masthead{
 	background-color: var(--global--color-background);
 }
 /* Sub menu */
-.primary-navigation .sub-menu {
-	border: none;
-	box-shadow: 0 3px 3px 5px var(--menu--color-shadow)
+button.sub-menu-toggle{
+	display: none !important;
 }
-@media only screen and (min-width: 482px) {
-	.primary-navigation > div > .menu-wrapper > li > .sub-menu:before,
-	.primary-navigation > div > .menu-wrapper > li > .sub-menu:after{
-		content: url("images/accordion-arrow-down.svg");
-		display: block;
-		position: absolute;
-		width:20px;
-		top: -11px;
-		left: var(--global--spacing-horizontal);
-		border-style: none;
-		border-color: var(--primary-nav--border-color) transparent;
-		border-width: 0 7px 10px 7px;
-		z-index: 10;
+
+/* Mobile menu nav button */
+/* TODO posiion jumping - not changed enough things from other sheet */
+/* @media only screen and (max-width: 660px) {
+
+	.menu-button-container {
+		display: flex;
 	}
-
+	.primary-menu-container{
+		display: none;
+	}
+} */
+@media only screen and (max-width: 482px) {
+	#masthead .site-logo{
+		display: none;
+	}
 }
 
-/* .site-main{
-	padding-top: calc(2.5 * var(--global--spacing-vertical));
-} */
+/* Article display */
+@media only screen and (min-width:822px){
+	/* Display a cool dude */
+	.entry-content:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce)::before{
+		content:url('images/Graphic_Human_3_Megaphone.svg');
+		position:absolute;
+		text-align: right;
+		width:100px;
+	}
+}
