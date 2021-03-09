@@ -70,23 +70,57 @@ p {
 }
 
 /* Menu formatting */
-.primary-navigation a:hover,
-.primary-navigation a:visited,
-.primary-navigation .current-menu-item > a:first-child:hover,
-.primary-navigation .current_page_item > a:first-child:hover,
-.primary-navigation .current-menu-item > a:first-child:visited {
-	text-decoration: underline;
-	text-decoration-color: var(--menu--color-underline);
-	text-decoration-style:solid;
-	text-decoration-thickness: 0.2em;
-	background-color: none;
-	outline:0;
-}
-.primary-navigation .current-menu-item > a:first-child, .primary-navigation .current_page_item > a:first-child {
-    text-decoration: none;
-    text-decoration-style: none;
+@media only screen and (min-width: 482px) {
+	.primary-navigation a:hover,
+	.primary-navigation a:visited,
+	.primary-navigation .current-menu-item > a:first-child:hover,
+	.primary-navigation .current_page_item > a:first-child:hover,
+	.primary-navigation .current-menu-item > a:first-child:visited {
+		text-decoration: underline;
+		text-decoration-color: var(--menu--color-underline);
+		text-decoration-style:solid;
+		text-decoration-thickness: 0.2em;
+		background-color: none;
+		outline:0;
+	}
+	.primary-navigation .current-menu-item > a:first-child, .primary-navigation .current_page_item > a:first-child {
+	    text-decoration: none;
+	    text-decoration-style: none;
+	}
+	.primary-navigation > div > .menu-wrapper > li > .sub-menu{
+		top: calc(137% + 16px);
+		box-shadow: 0 5px 8px rgba(0,0,0,0.2);
+		visibility: hidden;
+		opacity: 0;
+		padding:6px 16px;
+		border-top: 4px solid var(--global--color-red);
+
+		z-index: 100000;
+	}
+	.primary-navigation > div > .menu-wrapper > li:hover > .sub-menu {
+		top:100%;
+		visibility: visible;
+		opacity: 1;
+		border-bottom: 0;
+		border-left: 0;
+		border-right: 0;
+
+	}
+	.primary-navigation > div > .menu-wrapper > li > .sub-menu:before,
+	.primary-navigation > div > .menu-wrapper > li > .sub-menu:after{
+		content: "";
+		width: 0;
+		height: 0;
+		border-left: 9px solid transparent;
+		border-right: 9px solid transparent;
+		border-bottom: 10px solid var(--global--color-red);
+		position: absolute;
+		top: -14px;
+		left: 16px;
+	}
 }
 /**
+
  * Buttons
  */
  /* Menu button */
